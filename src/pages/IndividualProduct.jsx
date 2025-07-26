@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { MessageSquare, X } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -28,6 +28,9 @@ const NutriGenProductPage = () => {
   const [showChat, setShowChat] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
 
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" }); // Instant scroll
+  }, []);
   return (
     <div className="font-sans text-gray-800 bg-white relative overflow-x-hidden">
       <Navbar />

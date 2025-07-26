@@ -244,7 +244,7 @@ const Testimonials = () => {
               </div>
 
               {/* About Us Content (Left on lg) */}
-              <div className="w-full lg:w-1/2 p-8 flex flex-col justify-center bg-[#fcfbf5]">
+              <div className="w-full lg:w-1/2 p-8 flex flex-col justify-center bg-[#fcfbf5] text-center">
                 <span className="inline-block bg-yellow-300 text-gray-900 font-bold px-4 py-1 rounded mb-6 text-sm tracking-widest">
                   ABOUT US
                 </span>

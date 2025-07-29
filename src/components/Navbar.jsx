@@ -119,6 +119,11 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
+          <Link to="/internship" className="hover:text-purple-600">
+            Interns
+          </Link>
+        </li>
+        <li>
           <Link to="/contact" className="hover:text-purple-600">
             Contact
           </Link>

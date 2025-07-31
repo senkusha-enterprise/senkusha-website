@@ -7,22 +7,14 @@ import ServicesCarausel from "../components/ServicesCarausel";
 import ProductCarausel from "../components/ProductCarausel";
 import ProductsGrid from "../components/ui/ProductsGrid";
 import HeroHeader from "../components/HeroHeader";
+import TimelineSection from "../components/TimeLine";
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       <HeroHeader />
-
-      {/* Products Carousel Section */}
-      {/* <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
-            Our Products
-          </h2>
-          <ProductCarausel products={products} />
-        </div>
-      </section> */}
+      <TimelineSection />
 
       {/* Products Grid Section */}
       <section className="py-16 bg-white">

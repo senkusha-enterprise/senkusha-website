@@ -56,33 +56,48 @@ export default function HeroHeader() {
         <circle cx="50%" cy="100%" r="120" fill="#fff" opacity="0.07" />
       </svg>
 
-      <div className="relative z-10  w-full mx-auto px-2 sm:px-6 md:px-0 text-center flex flex-col items-center">
+      <div className="relative z-10 w-full mx-auto px-2 sm:px-6 md:px-0 text-center flex flex-col items-center">
         <h1
           className="text-2xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-medium text-white mb-4 sm:mb-6 tracking-wide leading-snug sm:leading-relaxed drop-shadow-lg animate-slide-up break-words"
           style={{ fontFamily: "Inter, system-ui, sans-serif" }}
         >
-          Power Your Growth with the Senkusha
-          <br />
-          <span className="text-purple-200">Crafting Digital Excellence</span>
+          Not Just an Internship. <br />
+          <span className="text-purple-200">A Builder's Launchpad.</span>
         </h1>
         <p
           className="text-base sm:text-xl md:text-lg font-medium text-white/95 mb-6 sm:mb-8 animate-fade-in leading-relaxed"
           style={{ animationDelay: "0.2s" }}
         >
-          Analyze, test, and make smarter decisions—so you can build experiences
-          that move the needle.
+          Become a product creator, not just a participant. For tech jobs or
+          your own startup — we get you ready for both.
         </p>
-        <PillButton
-          className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg shadow-xl yellow-overlay"
-          style={{
-            background: "#ffffff",
-            borderColor: "#fbbf24",
-            color: "#1f2937",
-            boxShadow: "0 4px 20px 0 rgba(251, 191, 36, 0.2)",
-          }}
-        >
-          Explore Us
-        </PillButton>
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center justify-center">
+          <PillButton
+            title="Start your journey with our mentor-led product building experience or collaborate with us as a college or company."
+            className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg shadow-xl yellow-overlay"
+            style={{
+              background: "#ffffff",
+              borderColor: "#fbbf24",
+              color: "#1f2937",
+              boxShadow: "0 4px 20px 0 rgba(251, 191, 36, 0.2)",
+            }}
+          >
+            Join the Next Batch
+          </PillButton>
+
+          <PillButton
+            title="Start your journey with our mentor-led product building experience or collaborate with us as a college or company."
+            className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg shadow-xl yellow-overlay"
+            style={{
+              background: "#ffffff",
+              borderColor: "#fbbf24",
+              color: "#1f2937",
+              boxShadow: "0 4px 20px 0 rgba(251, 191, 36, 0.2)",
+            }}
+          >
+            Partner with Us
+          </PillButton>
+        </div>
       </div>
     </section>
   );

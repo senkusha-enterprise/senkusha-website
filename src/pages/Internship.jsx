@@ -1,30 +1,70 @@
 import React from "react";
-import { FaGithub, FaFigma } from "react-icons/fa";
+import {
+  FaGithub,
+  FaFigma,
+  FaNodeJs,
+  FaDocker,
+  FaReact,
+  FaAws,
+  FaTrello,
+} from "react-icons/fa";
 import { VscCode } from "react-icons/vsc";
 import { GoCloud } from "react-icons/go";
 import { FiDatabase } from "react-icons/fi";
 import { TbGitBranch } from "react-icons/tb";
-import { Accordion, AccordionItem } from "../components/ui/Accordion"; // adjust the path as needed
+import { Accordion, AccordionItem } from "../components/ui/Accordion";
 import Navbar from "../components/Navbar";
 import PillButton from "../components/ui/PillButton";
 import Footer from "../components/Footer";
 
-const steps = [
-  { id: 1, text: "Students apply and go through a selection process" },
-  { id: 2, text: "We conduct one-on-one sessions to understand interests" },
-  { id: 3, text: "Students are divided into small, agile teams" },
-  { id: 4, text: "Each team is assigned mentors with industry experience" },
-  { id: 5, text: "Projects are planned, built, reviewed, and demoed" },
-];
+import intern_s1 from "../assets/intern_s1.jpg";
+import intern_s2 from "../assets/intern_s2.png";
+import intern_s3 from "../assets/intern_s3.jpg";
+import intern_s4 from "../assets/intern_s4.jpg";
+import intern_s5 from "../assets/intern_s5.jpg";
 
+const steps = [
+  {
+    id: 1,
+    text: "Students apply and go through a selection process",
+    image: intern_s1,
+  },
+  {
+    id: 2,
+    text: "We conduct one-on-one sessions to understand interests",
+    image: intern_s2,
+  },
+  {
+    id: 3,
+    text: "Students are divided into small, agile teams",
+    image: intern_s3,
+  },
+  {
+    id: 4,
+    text: "Each team is assigned mentors with industry experience",
+    image: intern_s4,
+  },
+  {
+    id: 5,
+    text: "Projects are planned, built, reviewed, and demoed",
+    image: intern_s5,
+  },
+];
 const tools = [
   { name: "GitHub", icon: FaGithub },
   { name: "VS Code", icon: VscCode },
   { name: "Figma", icon: FaFigma },
   { name: "GCP/AWS", icon: GoCloud },
   { name: "CI/CD Tools", icon: TbGitBranch },
+  { name: "Node.js", icon: FaNodeJs },
+  { name: "AWS", icon: FaAws },
+  { name: "React Native", icon: FaReact },
+  { name: "Trello", icon: FaTrello },
+  { name: "Docker", icon: FaDocker },
   { name: "REST APIs", icon: FiDatabase },
 ];
+
+const duplicatedTools = [...tools, ...tools];
 
 const testimonials = [
   {
@@ -74,21 +114,21 @@ const Internship = () => (
         <div className="inline-block bg-white/20 text-white text-xs sm:text-sm font-semibold px-3 py-1 rounded-full mb-4">
           INTERNSHIP SIMULATION PAGE
         </div>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3">
           This Isn't Just Training.
         </h1>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-yellow-400 mb-5">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#fff500] mb-5">
           It's Tech Culture in Action.
         </h2>
-        <p className="text-base sm:text-lg mb-3 px-2">
+        <p className="text-base sm:text-lg lg:text-xl mb-3 px-2">
           Analyze, test, and make smarter decisions—so you can build experiences
           that move the needle.
         </p>
-        <p className="text-sm sm:text-base text-white/80 mb-6">
+        <p className="text-sm sm:text-base lg:text-lg text-white/80 mb-6">
           Real products. Real roles. Real outcomes.
         </p>
         <PillButton
-          className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg shadow-xl yellow-overlay"
+          className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg lg:text-xl  shadow-xl yellow-overlay"
           style={{
             background: "#ffffff",
             borderColor: "#fbbf24",
@@ -102,26 +142,51 @@ const Internship = () => (
     </div>
 
     {/* How We Operate */}
-    <section className="py-16 px-4 bg-white text-center">
-      <h2 className="text-3xl sm:text-4xl font-bold mb-3">How We Operate</h2>
-      <p className="text-gray-600 mb-10 max-w-2xl mx-auto text-sm sm:text-base">
-        Every batch mimics a mini software company with tech rituals, delivery
-        goals, and continuous mentorship.
-      </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        {steps.map(({ id, text }) => (
+    <section className="py-16 px-4 bg-white">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4">How We Operate</h2>
+        <p className="text-gray-600 max-w-2xl mx-auto text-base">
+          Every batch mimics a mini software company with tech rituals, delivery
+          goals, and continuous mentorship.
+        </p>
+      </div>
+
+      <div className="flex flex-col gap-16 max-w-6xl mx-auto">
+        {steps.map(({ id, text, image }, index) => (
           <div
             key={id}
-            className="bg-white border border-gray-200 rounded-lg p-4 flex items-start gap-4 hover:shadow-md transition-all"
+            className={`flex flex-col-reverse lg:flex-row ${
+              index % 2 === 1 ? "lg:flex-row-reverse" : ""
+            } items-center gap-10 bg-gray-50 rounded-xl p-6 shadow-sm`}
           >
-            <div className="min-w-[32px] h-8 w-8 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white flex items-center justify-center font-bold text-sm">
-              {id}
+            {/* Left/Right: Image */}
+            <div className="lg:w-1/2">
+              <img
+                src={image}
+                alt={`Step ${id}`}
+                className="rounded-lg shadow-md w-full h-[280px] object-cover"
+              />
             </div>
-            <p className="text-gray-800 text-sm sm:text-base">{text}</p>
+
+            {/* Right/Left: Text */}
+            <div className="lg:w-1/2">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="h-11 w-11 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white flex items-center justify-center font-bold text-base">
+                  {id}
+                </div>
+                <h3 className="text-xl sm:text-2xl font-semibold text-gray-800">
+                  Step {id}
+                </h3>
+              </div>
+              <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
+                {text}
+              </p>
+            </div>
           </div>
         ))}
       </div>
-      <p className="mt-12 text-sm text-gray-500">
+
+      <p className="mt-16 text-center text-sm text-gray-500">
         For detailed walkthrough,{" "}
         <span className="text-purple-600 font-medium cursor-pointer hover:underline">
           Contact Us
@@ -149,7 +214,7 @@ const Internship = () => (
             ].map((b, i) => (
               <div
                 key={i}
-                className="bg-white border border-gray-200 rounded-lg p-6 text-center hover:shadow-md transition"
+                className="bg-white border border-gray-200 hover:border-purple-600 hover:border-2 rounded-lg p-6 text-center hover:shadow-md transition"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -180,21 +245,23 @@ const Internship = () => (
     {/* What You Work With */}
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             What You Work With
           </h2>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 max-w-5xl mx-auto">
-          {tools.map(({ name, icon: Icon }, i) => (
-            <div
-              key={i}
-              className="group bg-white border border-gray-200 rounded-lg p-6 text-center hover:shadow-lg hover:scale-105 transition-all"
-            >
-              <Icon className="h-10 w-10 mx-auto mb-3 text-gray-600 group-hover:text-purple-600 transition-colors" />
-              <p className="font-medium text-gray-700 text-sm">{name}</p>
-            </div>
-          ))}
+        <div className="relative overflow-hidden">
+          <div className="flex gap-6 whitespace-nowrap animate-scroll-x px-2 py-6 w-max">
+            {duplicatedTools.map(({ name, icon: Icon }, i) => (
+              <div
+                key={i}
+                className="min-w-[160px] shrink-0 bg-white border border-gray-200 hover:border-purple-600 hover:border-2 rounded-lg p-6 text-center hover:shadow-lg hover:scale-105 transition-all"
+              >
+                <Icon className="h-10 w-10 mx-auto mb-3 text-gray-600 group-hover:text-purple-600 transition-colors" />
+                <p className="font-medium text-gray-700 text-sm">{name}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -220,7 +287,7 @@ const Internship = () => (
           ].map((s, i) => (
             <div
               key={i}
-              className="text-center bg-white border border-gray-200 rounded-lg hover:shadow-md transition p-8 hover:border-purple-600 hover:border-2"
+              className="text-center bg-white border border-gray-200 hover:border-purple-600 hover:border-2 rounded-lg hover:shadow-md transition p-8"
             >
               <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-white text-2xl font-bold">{i + 1}</span>
@@ -233,59 +300,8 @@ const Internship = () => (
     </section>
 
     {/* Testimonials */}
-    <section className="py-14 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Words from Our Builders
-          </h2>
-        </div>
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {testimonials.map(({ name, role, quote, image }, i) => (
-            <div
-              key={i}
-              className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition"
-            >
-              <div className="flex items-center space-x-4 mb-4">
-                <img
-                  src={image}
-                  alt={name}
-                  className="w-12 h-12 rounded-full object-cover bg-gray-100"
-                />
-                <div>
-                  <p className="font-semibold text-gray-900">{name}</p>
-                  <p className="text-sm text-gray-500">{role}</p>
-                </div>
-              </div>
-              <blockquote className="text-gray-700 text-sm sm:text-base italic leading-relaxed">
-                “{quote}”
-              </blockquote>
-            </div>
-          ))}
-        </div>
 
-        <div className="text-center mt-12">
-          <button className="text-indigo-700 font-semibold px-8 py-3 rounded-full inline-flex items-center">
-            View All
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="ml-2 h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </section>
-
+    {/* FAQ Accordion */}
     <section className="py-24 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">

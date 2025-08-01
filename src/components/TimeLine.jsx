@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { FaUserTie, FaBoxes, FaChartLine, FaRocket } from "react-icons/fa";
 // Import images
 import home1 from "../assets/home_1.jpg";
-import home2 from "../assets/home_2.png";
-import home3 from "../assets/home_3.png";
+import home2 from "../assets/home_2.jpg";
+import home3 from "../assets/home_3.jpg";
 import home4 from "../assets/home_4.jpg";
 
 const timelineData = [

@@ -18,7 +18,7 @@ import PillButton from "../components/ui/PillButton";
 import Footer from "../components/Footer";
 
 import intern_s1 from "../assets/intern_s1.jpg";
-import intern_s2 from "../assets/intern_s2.png";
+import intern_s2 from "../assets/intern_s2.jpg";
 import intern_s3 from "../assets/intern_s3.jpg";
 import intern_s4 from "../assets/intern_s4.jpg";
 import intern_s5 from "../assets/intern_s5.jpg";

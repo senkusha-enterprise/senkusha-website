@@ -13,9 +13,7 @@ import { GoCloud } from "react-icons/go";
 import { FiDatabase } from "react-icons/fi";
 import { TbGitBranch } from "react-icons/tb";
 import { Accordion, AccordionItem } from "../components/ui/Accordion";
-import Navbar from "../components/Navbar";
 import PillButton from "../components/ui/PillButton";
-import Footer from "../components/Footer";
 
 import intern_s1 from "../assets/intern_s1.jpg";
 import intern_s2 from "../assets/intern_s2.jpg";
@@ -23,33 +21,20 @@ import intern_s3 from "../assets/intern_s3.jpg";
 import intern_s4 from "../assets/intern_s4.jpg";
 import intern_s5 from "../assets/intern_s5.jpg";
 
+import ExperienceImg from "../assets/experience.png";
+import TeamImg from "../assets/team.png";
+import CloudImg from "../assets/cloud.png";
+import ProjectImg from "../assets/project.png";
+
+
 const steps = [
-  {
-    id: 1,
-    text: "Students apply and go through a selection process",
-    image: intern_s1,
-  },
-  {
-    id: 2,
-    text: "We conduct one-on-one sessions to understand interests",
-    image: intern_s2,
-  },
-  {
-    id: 3,
-    text: "Students are divided into small, agile teams",
-    image: intern_s3,
-  },
-  {
-    id: 4,
-    text: "Each team is assigned mentors with industry experience",
-    image: intern_s4,
-  },
-  {
-    id: 5,
-    text: "Projects are planned, built, reviewed, and demoed",
-    image: intern_s5,
-  },
+  { id: 1, text: "Students apply and go through a selection process", image: intern_s1 },
+  { id: 2, text: "We conduct one-on-one sessions to understand interests", image: intern_s2 },
+  { id: 3, text: "Students are divided into small, agile teams", image: intern_s3 },
+  { id: 4, text: "Each team is assigned mentors with industry experience", image: intern_s4 },
+  { id: 5, text: "Projects are planned, built, reviewed, and demoed", image: intern_s5 },
 ];
+
 const tools = [
   { name: "GitHub", icon: FaGithub },
   { name: "VS Code", icon: VscCode },
@@ -66,48 +51,8 @@ const tools = [
 
 const duplicatedTools = [...tools, ...tools];
 
-const testimonials = [
-  {
-    name: "Neha",
-    role: "Frontend Dev Intern",
-    quote:
-      "Before Senkusha, I had zero confidence. Now I've presented a working product to mentors and peers.",
-    image: "/images/avatar-placeholder.png",
-  },
-  {
-    name: "Krish",
-    role: "Backend Intern",
-    quote:
-      "They don't just teach. They make you do. That's what changed the game for me.",
-    image: "/images/avatar-placeholder.png",
-  },
-  {
-    name: "Satva",
-    role: "QA Intern",
-    quote:
-      "I finally know what it feels like to be part of a real product team. Deadlines, feedback, collaboration — everything.",
-    image: "/images/avatar-placeholder.png",
-  },
-  {
-    name: "Arjun",
-    role: "Full Stack Intern",
-    quote:
-      "The mentorship here isn't just guidance – it's like having a senior developer pair with you every step of the way.",
-    image: "/images/avatar-placeholder.png",
-  },
-  {
-    name: "Priya",
-    role: "DevOps Intern",
-    quote:
-      "From zero cloud knowledge to deploying production-ready applications. The transformation is real.",
-    image: "/images/avatar-placeholder.png",
-  },
-];
-
 const Internship = () => (
-  <div className="flex flex-col min-h-screen">
-    <Navbar />
-
+  <div className="flex flex-col">
     {/* Hero Section */}
     <div className="w-full min-h-[24rem] sm:min-h-[32rem] lg:min-h-[36rem] flex items-center justify-center text-center px-4 bg-gradient-to-r from-purple-600 to-indigo-700">
       <div className="w-full max-w-3xl text-white">
@@ -128,7 +73,7 @@ const Internship = () => (
           Real products. Real roles. Real outcomes.
         </p>
         <PillButton
-          className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg lg:text-xl  shadow-xl yellow-overlay"
+          className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg lg:text-xl shadow-xl yellow-overlay"
           style={{
             background: "#ffffff",
             borderColor: "#fbbf24",
@@ -157,18 +102,15 @@ const Internship = () => (
             key={id}
             className={`flex flex-col-reverse lg:flex-row ${
               index % 2 === 1 ? "lg:flex-row-reverse" : ""
-            } items-center gap-10 bg-gray-50 rounded-xl p-6 shadow-sm`}
+            } items-center gap-10 `}
           >
-            {/* Left/Right: Image */}
             <div className="lg:w-1/2">
               <img
                 src={image}
                 alt={`Step ${id}`}
-                className="rounded-lg shadow-md w-full h-[280px] object-cover"
+                className="rounded-lg w-full h-[280px] object-cover"
               />
             </div>
-
-            {/* Right/Left: Text */}
             <div className="lg:w-1/2">
               <div className="flex items-center gap-4 mb-4">
                 <div className="h-11 w-11 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white flex items-center justify-center font-bold text-base">
@@ -266,40 +208,44 @@ const Internship = () => (
       </div>
     </section>
 
-    {/* What You Learn */}
-    <section className="py-10 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            You'll Walk Away With:
-          </h2>
-          <p className="text-gray-600 text-lg">
-            You're not just learning tools — you're applying them like in a real
-            job.
-          </p>
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-          {[
-            "Real product experience",
-            "Team collaboration skills",
-            "Cloud & Git fluency",
-            "Demo-worthy project for resume",
-          ].map((s, i) => (
-            <div
-              key={i}
-              className="text-center bg-white border border-gray-200 hover:border-purple-600 hover:border-2 rounded-lg hover:shadow-md transition p-8"
-            >
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-white text-2xl font-bold">{i + 1}</span>
-              </div>
-              <h3 className="font-semibold text-gray-900 text-lg">{s}</h3>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+{/* What You Learn */}
+<section className="py-10 bg-gray-50">
+  <div className="container mx-auto px-4">
+    <div className="text-center mb-16">
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        You'll Walk Away With:
+      </h2>
+      <p className="text-gray-600 text-lg">
+        You're not just learning tools — you're applying them like in a real job.
+      </p>
+    </div>
 
-    {/* Testimonials */}
+    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+      {[
+        { title: "Real product experience", icon: ExperienceImg },
+        { title: "Team collaboration skills", icon: TeamImg },
+        { title: "Cloud & Git fluency", icon: CloudImg },
+        { title: "Demo-worthy project for resume", icon: ProjectImg },
+      ].map((item, i) => (
+        <div
+          key={i}
+          className="text-center bg-white border border-gray-200 hover:border-purple-600 hover:border-2 rounded-lg hover:shadow-md transition p-8"
+        >
+          <div className="w-20 h-20 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6 overflow-hidden">
+            <img
+              src={item.icon}
+              alt={item.title}
+              className="w-18 h-18 object-contain"
+            />
+          </div>
+          <h3 className="font-semibold text-gray-900 text-lg">{item.title}</h3>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
 
     {/* FAQ Accordion */}
     <section className="py-24 bg-gray-50">
@@ -309,22 +255,18 @@ const Internship = () => (
             Still Wondering What We Are?
           </h2>
         </div>
-
         <div className="max-w-3xl mx-auto">
           <Accordion>
             <AccordionItem title="Is Senkusha a training institute?">
               No. We don't train you, we engage you in building.
             </AccordionItem>
-
             <AccordionItem title="Is this a bootcamp?">
               No. Bootcamps teach. We simulate.
             </AccordionItem>
-
             <AccordionItem title="Is it a course-based program?">
               Not at all. It's project-driven and team-structured, like real
               tech jobs.
             </AccordionItem>
-
             <AccordionItem title="Then what is Senkusha?">
               A tech company simulation where you take up roles, deliver real
               products, and learn to work like the best in the industry.
@@ -333,8 +275,6 @@ const Internship = () => (
         </div>
       </div>
     </section>
-
-    <Footer />
   </div>
 );
 

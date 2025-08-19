@@ -1,13 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { products, services } from "../data";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ServicesCarausel from "../components/ServicesCarausel";
-import ProductCarausel from "../components/ProductCarausel";
 import ProductsGrid from "../components/ui/ProductsGrid";
 import HeroHeader from "../components/HeroHeader";
 import TimelineSection from "../components/TimeLine";
+import Internship from "./Internship"; 
 
 export default function HomePage() {
   return (
@@ -29,7 +28,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Services Carousel Section */}
+      {/* Internship Section */}
+      <Internship />
+
+      {/* Services Carousel Section 
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
@@ -37,7 +39,7 @@ export default function HomePage() {
           </h2>
           <ServicesCarausel services={services} />
         </div>
-      </section>
+      </section>*/}
 
       <Footer />
     </div>

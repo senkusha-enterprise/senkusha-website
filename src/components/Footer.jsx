@@ -14,13 +14,13 @@ function Footer() {
           <Link to="/contact">Contact</Link>
         </div>
 
-        {/* Column 2: Programs */}
+        {/* Column 2: Programs 
         <div className="flex flex-col min-w-[150px] mb-5 gap-2">
           <h4 className="text-[#AFCBDB] mb-2">SERVICES</h4>
           <Link to="/service/data-consulting">Data Consulting</Link>
           <Link to="/service/ai-integration">AI Integration</Link>
           <Link to="/service/cloud-migration">Cloud Migration</Link>
-        </div>
+        </div>*/}
 
         {/* Column 3: Resources */}
         <div className="flex flex-col min-w-[150px] mb-5 gap-2">

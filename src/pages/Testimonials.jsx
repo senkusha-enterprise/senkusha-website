@@ -22,68 +22,76 @@ const Testimonials = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const TestimonialCard = ({ testimonial }) => (
-    <motion.div
-      initial={{ rotateY: 180, opacity: 0 }}
-      animate={{ rotateY: 0, opacity: 1 }}
-      transition={{ duration: 1, ease: "easeInOut" }}
-      className="bg-[#fcfbf5] rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform border border-gray-100 overflow-hidden flex flex-col md:flex-row p-6 gap-6"
-    >
-      <div className="flex flex-col items-center justify-center md:w-[30%] w-full py-4">
-        <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-purple-200 mb-4 bg-purple-50">
-          <img
-            src={require("../assets/user.jpg")}
-            alt={testimonial.name}
-            className="w-full h-full object-cover"
-          />
+
+
+const TestimonialCard = ({ testimonial }) => (
+  <motion.div
+    initial={{ rotateY: 180, opacity: 0 }}
+    animate={{ rotateY: 0, opacity: 1 }}
+    transition={{ duration: 1, ease: "easeInOut" }}
+    className="bg-[#fcfbf5] rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform border border-gray-100 overflow-hidden flex flex-col md:flex-row p-6 gap-6"
+  >
+    {/* Left section */}
+    <div className="flex flex-col items-center justify-center md:w-[30%] w-full py-4">
+      <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-purple-200 mb-4 bg-purple-50">
+        <img
+          src={testimonial.image || require("../assets/user.jpg")}
+          alt={testimonial.name}
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <h3 className="font-bold text-gray-900 text-sm md:text-lg text-center">
+        {testimonial.name} ~ {testimonial.year}
+      </h3>
+      <p className="text-xs md:text-sm text-gray-600 text-center mb-2">
+        {testimonial.role}
+      </p>
+      <div className="flex items-center justify-center space-x-1 mt-1">
+        {[...Array(5)].map((_, i) => (
+          <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+        ))}
+      </div>
+    </div>
+
+    {/* Right section */}
+    <div className="flex-1 flex flex-col justify-center">
+      <div className="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-lg p-3 mb-4 flex items-center justify-between">
+        <div className="flex items-center space-x-2">
+          <Code className="w-4 h-4 text-purple-600" />
+          <span className="font-semibold text-purple-800 text-sm md:text-base">
+            Worked on {testimonial.project}
+          </span>
         </div>
-        <h3 className="font-bold text-gray-900 text-sm md:text-lg text-center">
-          {testimonial.name} ~ {testimonial.year}
-        </h3>
-        <p className="text-xs md:text-sm text-gray-600 text-center mb-2">
-          {testimonial.role}
-        </p>
-        <div className="flex items-center justify-center space-x-1 mt-1">
-          {[...Array(5)].map((_, i) => (
-            <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+      </div>
+
+      <div className="mb-4">
+        <div className="flex items-start space-x-2 mb-3">
+          <Quote className="w-4 h-4 text-purple-600 mt-1 flex-shrink-0" />
+          <p className="text-gray-700 text-sm md:text-base leading-relaxed italic">
+            "{testimonial.feedback}"
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <h4 className="text-xs md:text-sm font-semibold text-gray-700 mb-2">
+          Skills Developed:
+        </h4>
+        <div className="flex flex-wrap gap-2">
+          {testimonial.skills.map((skill, index) => (
+            <span
+              key={index}
+              className="px-2 md:px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium"
+            >
+              {skill}
+            </span>
           ))}
         </div>
       </div>
-      <div className="flex-1 flex flex-col justify-center">
-        <div className="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-lg p-3 mb-4 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <Code className="w-4 h-4 text-purple-600" />
-            <span className="font-semibold text-purple-800 text-sm md:text-base">
-              Worked on {testimonial.project}
-            </span>
-          </div>
-        </div>
-        <div className="mb-4">
-          <div className="flex items-start space-x-2 mb-3">
-            <Quote className="w-4 h-4 text-purple-600 mt-1 flex-shrink-0" />
-            <p className="text-gray-700 text-sm md:text-base leading-relaxed italic">
-              "{testimonial.feedback}"
-            </p>
-          </div>
-        </div>
-        <div>
-          <h4 className="text-xs md:text-sm font-semibold text-gray-700 mb-2">
-            Skills Developed:
-          </h4>
-          <div className="flex flex-wrap gap-2">
-            {testimonial.skills.map((skill, index) => (
-              <span
-                key={index}
-                className="px-2 md:px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  );
+    </div>
+  </motion.div>
+);
+
 
   const MentorImageCard = ({ mentor, idx }) => {
     const showBelow = idx === 0 || idx === 1;

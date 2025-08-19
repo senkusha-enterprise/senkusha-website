@@ -8,6 +8,8 @@ import Testimonials from "./pages/Testimonials";
 // import Testimonial2 from "./pages/Testimonial2";
 import ComingSoon from "./pages/ComingSoon";
 import Internship from "./pages/Internship";
+import ResumeAnalyzerProductPage from './pages/ResumeAnalyzerProductPage';
+
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
           <Route path="/comingsoon" element={<ComingSoon />} />
           <Route path="/product/:id" element={<IndividualProduct />} />
           <Route path="/service/:id" element={<IndividualService />} />
+          <Route path="/resume-analyzer" element={<ResumeAnalyzerProductPage />} />
         </Routes>
       </div>
     </Router>

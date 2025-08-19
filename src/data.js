@@ -18,48 +18,44 @@ export const products = [
   {
     id: 1,
     name: "DataGPT",
-    description:
-      "Advanced AI-powered data analysis and visualization tool that helps businesses make data-driven decisions.",
+    description: "Advanced AI-powered data analysis and visualization tool.",
     features: [
       "Natural language data queries",
       "Automated data visualization",
       "Real-time analytics dashboard",
-      "Predictive modeling capabilities",
     ],
     image: DatagptImage,
     category: "AI & Analytics",
-    price: "$299/month",
+    price: "$299/month"
   },
   {
     id: 2,
     name: "Nutrigen",
-    description:
-      "Personalized nutrition planning platform that creates custom meal plans based on genetic profile and health goals.",
+    description: "Personalized nutrition planning platform.",
     features: [
       "DNA-based nutrition recommendations",
       "Personalized meal planning",
       "Health goal tracking",
-      "Expert nutritionist consultation",
     ],
     image: NutrigenImage,
     category: "Health & Wellness",
-    price: "$199/month",
+    price: "$199/month"
   },
   {
     id: 3,
     name: "Resume Analyzer",
-    description:
-      "Professional resume creation tool with AI-powered suggestions and industry-specific templates.",
+    description: "AI-powered resume optimization tool with instant feedback.",
     features: [
-      "AI-powered content suggestions",
+      "ATS compatibility scoring",
+      "Content optimization suggestions",
       "Industry-specific templates",
-      "ATS-friendly formatting",
-      "Real-time collaboration",
     ],
     image: ResumeImage,
     category: "Career Tools",
-    price: "$49/month",
-  },
+    price: "Free",
+    isExternal: true,
+    externalUrl: "https://resume-analyzer-app-351747392494.asia-south1.run.app"
+  }
 ];
 
 export const services = [

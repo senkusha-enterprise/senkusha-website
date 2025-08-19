@@ -3,7 +3,7 @@ name: Deploy React App to GitHub Pages
 on:
   push:
     branches:
-      - S_portfolio   # Deploy whenever this branch gets new commits
+      - S_portfolio
 
 jobs:
   build-and-deploy:
@@ -22,10 +22,11 @@ jobs:
         run: npm install
 
       - name: Build project
-        run: CI=false npm run build   # ✅ prevents ESLint warnings from breaking build
+        run: CI=false npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}   # ✅ correct built-in token
           publish_dir: ./build
+          publish_branch: gh-pages   # ✅ make sure we push to gh-pages branch

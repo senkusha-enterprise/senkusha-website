@@ -29,10 +29,11 @@ jobs:
       - name: Build project
         run: npm run build
 
+      # ✅ use upload-artifact@v4 explicitly (not just upload-pages-artifact)
       - name: Upload production-ready build files
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: ./build   # for React, build folder
+          path: ./build   # React build folder
 
   deploy:
     needs: build
@@ -44,4 +45,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4

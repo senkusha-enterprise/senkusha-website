@@ -57,7 +57,7 @@ const TestimonialCard = ({ testimonial }) => (
     <div className="flex-1 flex flex-col justify-center">
       <div className="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-lg p-3 mb-4 flex items-center justify-between">
         <div className="flex items-center space-x-2">
-          <Code className="w-4 h-4 text-purple-600" />
+          
           <span className="font-semibold text-purple-800 text-sm md:text-base">
             Worked on {testimonial.project}
           </span>
@@ -66,7 +66,7 @@ const TestimonialCard = ({ testimonial }) => (
 
       <div className="mb-4">
         <div className="flex items-start space-x-2 mb-3">
-          <Quote className="w-4 h-4 text-purple-600 mt-1 flex-shrink-0" />
+          
           <p className="text-gray-700 text-sm md:text-base leading-relaxed italic">
             "{testimonial.feedback}"
           </p>

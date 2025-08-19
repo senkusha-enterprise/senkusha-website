@@ -1,4 +1,9 @@
 import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import {
   FaGithub,
   FaFigma,
@@ -86,56 +91,70 @@ const Internship = () => (
       </div>
     </div>
 
-    {/* How We Operate */}
-    <section className="py-16 px-4 bg-white">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-4">How We Operate</h2>
-        <p className="text-gray-600 max-w-2xl mx-auto text-base">
-          Every batch mimics a mini software company with tech rituals, delivery
-          goals, and continuous mentorship.
-        </p>
-      </div>
+{/* How We Operate */}
+<section className="py-16 px-4 bg-white">
+  <div className="text-center mb-12">
+    <h2 className="text-3xl sm:text-4xl font-bold mb-4">How We Operate</h2>
+    <p className="text-gray-600 max-w-2xl mx-auto text-base">
+      Every batch mimics a mini software company with tech rituals, delivery
+      goals, and continuous mentorship.
+    </p>
+  </div>
 
-      <div className="flex flex-col gap-16 max-w-6xl mx-auto">
-        {steps.map(({ id, text, image }, index) => (
-          <div
-            key={id}
-            className={`flex flex-col-reverse lg:flex-row ${
-              index % 2 === 1 ? "lg:flex-row-reverse" : ""
-            } items-center gap-10 `}
-          >
-            <div className="lg:w-1/2">
-              <img
-                src={image}
-                alt={`Step ${id}`}
-                className="rounded-lg w-full h-[280px] object-cover"
-              />
-            </div>
-            <div className="lg:w-1/2">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="h-11 w-11 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white flex items-center justify-center font-bold text-base">
+  {/* Carousel Wrapper */}
+  <div className="max-w-6xl mx-auto relative">
+    <Swiper
+      modules={[Navigation, Pagination, Autoplay]}
+      spaceBetween={30}
+      slidesPerView={1}
+      loop={true}
+      autoplay={{ delay: 2000, disableOnInteraction: false }}
+      pagination={{ clickable: true }}
+      navigation={true}
+      breakpoints={{
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
+      }}
+      className="pb-16" // 👈 adds space so dots sit below
+      style={{
+        "--swiper-navigation-color": "#6b21a8",
+        "--swiper-pagination-color": "#6b21a8",
+        "--swiper-pagination-bullet-inactive-color": "#c4b5fd",
+        "--swiper-pagination-bullet-inactive-opacity": "1",
+      }}
+    >
+      {steps.map(({ id, text, image }) => (
+        <SwiperSlide key={id}>
+          <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300">
+            <img
+              src={image}
+              alt={`Step ${id}`}
+              className="w-full h-48 object-contain bg-white"
+            />
+
+            <div className="p-6">
+              <div className="flex items-center gap-3 mb-3 justify-center">
+                {/* Round Purple Circle */}
+                <div className="h-14 w-14 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white flex items-center justify-center font-bold text-lg">
                   {id}
                 </div>
-                <h3 className="text-xl sm:text-2xl font-semibold text-gray-800">
-                  Step {id}
-                </h3>
               </div>
-              <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
+              {/* Bold text */}
+              <p className="text-gray-800 text-sm font-semibold leading-relaxed text-center">
                 {text}
               </p>
             </div>
           </div>
-        ))}
-      </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  </div>
+</section>
 
-      <p className="mt-16 text-center text-sm text-gray-500">
-        For detailed walkthrough,{" "}
-        <span className="text-purple-600 font-medium cursor-pointer hover:underline">
-          Contact Us
-        </span>{" "}
-        for a discovery session.
-      </p>
-    </section>
+
+
+
+
 
     {/* Paid Program Disclosure */}
     <section className="py-24 bg-gray-50">

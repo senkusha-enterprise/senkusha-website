@@ -1,5 +1,6 @@
 {
   "name": "senkuhsaportfolio",
+  "homepage": "https://shravanisenkusha.github.io/S_portfolio",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -20,7 +21,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "ESLINT_NO_DEV_ERRORS=true react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

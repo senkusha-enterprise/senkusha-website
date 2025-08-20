@@ -209,28 +209,29 @@ const Internship = () => (
     </section>
 
     {/* What You Work With */}
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            What You Work With
-          </h2>
-        </div>
-        <div className="relative overflow-hidden">
-          <div className="flex gap-6 whitespace-nowrap animate-scroll-x px-2 py-6 w-max">
-            {duplicatedTools.map(({ name, icon: Icon }, i) => (
-              <div
-                key={i}
-                className="min-w-[160px] shrink-0 bg-white border border-gray-200 hover:border-purple-600 hover:border-2 rounded-lg p-6 text-center hover:shadow-lg hover:scale-105 transition-all"
-              >
-                <Icon className="h-10 w-10 mx-auto mb-3 text-gray-600 group-hover:text-purple-600 transition-colors" />
-                <p className="font-medium text-gray-700 text-sm">{name}</p>
-              </div>
-            ))}
+<section className="py-16  bg-gradient-to-r from-purple-600 to-indigo-700">
+  <div className="container mx-auto px-4">
+    <div className="text-center mb-10">
+      <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+        What You Work With
+      </h2>
+    </div>
+    <div className="relative overflow-hidden">
+      <div className="flex gap-6 whitespace-nowrap animate-scroll-x px-2 py-6 w-max">
+        {duplicatedTools.map(({ name, icon: Icon }, i) => (
+          <div
+            key={i}
+            className="min-w-[160px] shrink-0 bg-white border border-gray-200 hover:border-purple-600 hover:border-2 rounded-lg p-6 text-center hover:shadow-lg hover:scale-105 transition-all"
+          >
+            <Icon className="h-10 w-10 mx-auto mb-3 text-gray-600 group-hover:text-purple-600 transition-colors" />
+            <p className="font-medium text-gray-700 text-sm">{name}</p>
           </div>
-        </div>
+        ))}
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
 
 {/* What You Learn */}
 <section className="py-10 bg-gray-50">

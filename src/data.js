@@ -26,7 +26,6 @@ export const products = [
     ],
     image: DatagptImage,
     category: "AI & Analytics",
-    price: "$299/month"
   },
   {
     id: 2,
@@ -39,7 +38,7 @@ export const products = [
     ],
     image: NutrigenImage,
     category: "Health & Wellness",
-    price: "$199/month"
+  
   },
   {
     id: 3,
@@ -52,7 +51,7 @@ export const products = [
     ],
     image: ResumeImage,
     category: "Career Tools",
-    price: "Free",
+    
     isExternal: true,
     externalUrl: "https://resume-analyzer-app-351747392494.asia-south1.run.app"
   }

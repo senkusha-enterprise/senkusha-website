@@ -46,77 +46,97 @@ const contentData = [
   },
 ];
 
-const ContentCard = ({ item }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5, ease: "easeOut" }}
-    viewport={{ once: true }}
-    className="bg-white rounded-2xl border border-gray-200 p-8 flex flex-col gap-4 hover:shadow-lg transition-all duration-300"
-  >
-    {/* Icon + Title */}
-    <div className="flex items-center gap-3">
-      <div className="w-12 h-12 bg-purple-100 flex items-center justify-center rounded-full">
-        {item.icon}
+const ContentCard = ({ item }) => {
+  const isCentered = item.id === 4; // Only center-align the last card
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      viewport={{ once: true }}
+      className={`bg-white rounded-2xl border border-gray-200 p-8 flex flex-col gap-4 hover:shadow-lg transition-all duration-300 ${
+        isCentered ? "items-center text-center" : ""
+      }`}
+    >
+      {/* Icon + Title */}
+      <div
+        className={`flex items-center gap-3 ${
+          isCentered ? "justify-center" : ""
+        }`}
+      >
+        <div className="w-12 h-12 bg-purple-100 flex items-center justify-center rounded-full">
+          {item.icon}
+        </div>
+        <h2 className="text-xl font-semibold text-gray-900">{item.title}</h2>
       </div>
-      <h2 className="text-xl font-semibold text-gray-900">{item.title}</h2>
-    </div>
 
-    {/* Subtitle */}
-    {item.subtitle && (
-      <p className="text-gray-600 text-base leading-relaxed">{item.subtitle}</p>
-    )}
+      {/* Subtitle */}
+      {item.subtitle && (
+        <p className="text-gray-600 text-base leading-relaxed">
+          {item.subtitle}
+        </p>
+      )}
 
-    {/* Tooltip */}
-    {item.tooltip && (
-      <p className="text-sm italic text-gray-500">{item.tooltip}</p>
-    )}
+      {/* Tooltip */}
+      {item.tooltip && (
+        <p className="text-sm italic text-gray-500">{item.tooltip}</p>
+      )}
 
-    {/* Points */}
-    {item.points && (
-      <ul className="space-y-2 text-gray-700 text-base">
-        {item.points.map((point, i) => (
-          <li key={i} className="flex items-start gap-2">
-            <FaCheckCircle className="text-purple-600 mt-1" />
-            {point}
-          </li>
-        ))}
-      </ul>
-    )}
+      {/* Points */}
+      {item.points && (
+        <ul className="space-y-2 text-gray-700 text-base">
+          {item.points.map((point, i) => (
+            <li key={i} className="flex items-start gap-2">
+              <FaCheckCircle className="text-purple-600 mt-1" />
+              {point}
+            </li>
+          ))}
+        </ul>
+      )}
 
-    {/* Stats */}
-    {item.stats && (
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
-        {item.stats.map((stat, i) => (
-          <div
-            key={i}
-            className="bg-purple-50 text-center p-4 rounded-xl font-medium shadow-sm"
-          >
-            {stat}
-          </div>
-        ))}
-      </div>
-    )}
+      {/* Stats */}
+      {item.stats && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+          {item.stats.map((stat, i) => (
+            <div
+              key={i}
+              className="bg-purple-50 text-center p-4 rounded-xl font-medium shadow-sm"
+            >
+              {stat}
+            </div>
+          ))}
+        </div>
+      )}
 
-    {/* Bullets */}
-    {item.bullets && (
-      <ul className="space-y-2 text-gray-700 text-base">
-        {item.bullets.map((bullet, i) => (
-          <li key={i} className="flex items-start gap-2">
-            <FaCheckCircle className="text-purple-600 mt-1" />
-            {bullet}
-          </li>
-        ))}
-      </ul>
-    )}
-  </motion.div>
-);
+      {/* Bullets */}
+      {item.bullets && (
+        <ul
+          className={`space-y-2 text-gray-700 text-base ${
+            isCentered ? "list-none" : ""
+          }`}
+        >
+          {item.bullets.map((bullet, i) => (
+            <li
+              key={i}
+              className={`flex gap-2 ${
+                isCentered ? "justify-center" : "items-start"
+              }`}
+            >
+              <FaCheckCircle className="text-purple-600 mt-1" />
+              <span>{bullet}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+    </motion.div>
+  );
+};
 
 const HeroSection = () => {
   return (
     <section className="py-16 bg-gradient-to-b from-purple-50 to-white">
       <div className="max-w-6xl mx-auto px-6 space-y-12">
-        
         {/* Top 2 Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {contentData.slice(0, 2).map((item) => (
@@ -127,7 +147,7 @@ const HeroSection = () => {
         {/* Stats Section */}
         <ContentCard item={contentData[2]} />
 
-         {/* Difference Section (centered) */}
+        {/* Difference Section (centered) */}
         <div className="flex justify-center">
           <div className="w-full max-w-2xl">
             <ContentCard item={contentData[3]} />
@@ -139,6 +159,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
-
-

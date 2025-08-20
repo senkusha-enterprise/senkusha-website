@@ -56,35 +56,7 @@ const Navbar = () => {
           </Link>
         </li>
 
-        {/* Products Dropdown */}
-        <li className="relative dropdown-parent">
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              toggleDropdown("products");
-            }}
-            className="flex items-center gap-1 hover:text-purple-600"
-          >
-            Products <ChevronDown size={16} />
-          </button>
-          {showDropdown === "products" && (
-            <ul className="absolute top-full left-0 mt-2 w-56 bg-white shadow-lg rounded-md py-2 px-4 z-50">
-              {products.map((product) => (
-                <li
-                  key={product.id}
-                  className="py-1 hover:text-purple-600 flex items-center gap-2"
-                >
-                  <img src={product.image} alt={product.name} className="w-5 h-5" />
-                  {product.id === 3 ? ( // Resume Analyzer opens internal page
-                    <Link to="/resume-analyzer">{product.name}</Link>
-                  ) : (
-                    <Link to={`/product/${product.id}`}>{product.name}</Link>
-                  )}
-                </li>
-              ))}
-            </ul>
-          )}
-        </li>
+        
 
         {/*
         // Services Dropdown
@@ -122,6 +94,35 @@ const Navbar = () => {
           <Link to="/testimonials" className="hover:text-purple-600">
             Testimonials
           </Link>
+        </li>
+        {/* Products Dropdown */}
+        <li className="relative dropdown-parent">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              toggleDropdown("products");
+            }}
+            className="flex items-center gap-1 hover:text-purple-600"
+          >
+            Products <ChevronDown size={16} />
+          </button>
+          {showDropdown === "products" && (
+            <ul className="absolute top-full left-0 mt-2 w-56 bg-white shadow-lg rounded-md py-2 px-4 z-50">
+              {products.map((product) => (
+                <li
+                  key={product.id}
+                  className="py-1 hover:text-purple-600 flex items-center gap-2"
+                >
+                  <img src={product.image} alt={product.name} className="w-5 h-5" />
+                  {product.id === 3 ? ( // Resume Analyzer opens internal page
+                    <Link to="/resume-analyzer">{product.name}</Link>
+                  ) : (
+                    <Link to={`/product/${product.id}`}>{product.name}</Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          )}
         </li>
         {/*
         <li>
@@ -168,44 +169,7 @@ const Navbar = () => {
             </Link>
           </li>
 
-          <li>
-            <div className="dropdown-parent">
-              <button
-                onClick={() => toggleDropdown("products")}
-                className="flex items-center gap-1 hover:text-purple-600 w-full text-left"
-              >
-                Products <ChevronDown size={16} />
-              </button>
-              {showDropdown === "products" && (
-                <ul className="mt-2 bg-white shadow rounded-md py-2 px-4">
-                  {products.map((product) => (
-                    <li
-                      key={product.id}
-                      className="py-1 hover:text-purple-600 flex items-center gap-2"
-                    >
-                      <img src={product.image} alt={product.name} className="w-5 h-5" />
-                      {product.id === 3 ? (
-                        <Link
-                          to="/resume-analyzer"
-                          onClick={() => setMobileMenuOpen(false)}
-                        >
-                          {product.name}
-                        </Link>
-                      ) : (
-                        <Link
-                          to={`/product/${product.id}`}
-                          onClick={() => setMobileMenuOpen(false)}
-                        >
-                          {product.name}
-                        </Link>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          </li>
-
+          
           {/*
           <li>
             <div className="dropdown-parent">
@@ -261,6 +225,44 @@ const Navbar = () => {
             </Link>
           </li>
            */}
+           <li>
+            <div className="dropdown-parent">
+              <button
+                onClick={() => toggleDropdown("products")}
+                className="flex items-center gap-1 hover:text-purple-600 w-full text-left"
+              >
+                Products <ChevronDown size={16} />
+              </button>
+              {showDropdown === "products" && (
+                <ul className="mt-2 bg-white shadow rounded-md py-2 px-4">
+                  {products.map((product) => (
+                    <li
+                      key={product.id}
+                      className="py-1 hover:text-purple-600 flex items-center gap-2"
+                    >
+                      <img src={product.image} alt={product.name} className="w-5 h-5" />
+                      {product.id === 3 ? (
+                        <Link
+                          to="/resume-analyzer"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {product.name}
+                        </Link>
+                      ) : (
+                        <Link
+                          to={`/product/${product.id}`}
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {product.name}
+                        </Link>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </li>
+
           <li>
             <Link
               to="/contact"

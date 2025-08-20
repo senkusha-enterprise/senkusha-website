@@ -22,7 +22,7 @@ const contentData = [
   },
   {
     id: 3,
-    title: "Why Senkusha Works",
+    title: "Why Senkusha Stands Out",
     stats: [
       "3 Years of Proven Success",
       "50+ Students Onboarded",
@@ -46,20 +46,29 @@ const contentData = [
   },
 ];
 
-const ContentCard = ({ item }) => (
+const ContentCard = ({ item, highlight }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5, ease: "easeOut" }}
     viewport={{ once: true }}
-    className="bg-white rounded-2xl border border-gray-200 p-8 flex flex-col gap-4 hover:shadow-lg transition-all duration-300"
+    className={`rounded-2xl p-8 flex flex-col gap-4 transition-all duration-300
+      bg-gradient-to-br from-purple-50 to-white border-2 border-purple-200 shadow-xl scale-[1.00] hover:scale-[1.03]
+      ${highlight ? "border-purple-300 shadow-2xl scale-[1.02]" : ""}`}
   >
     {/* Icon + Title */}
     <div className="flex items-center gap-3">
       <div className="w-12 h-12 bg-purple-100 flex items-center justify-center rounded-full">
         {item.icon}
       </div>
-      <h2 className="text-xl font-semibold text-gray-900">{item.title}</h2>
+      <h2
+        className={`text-xl font-semibold 
+          ${highlight
+            ? "bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-500 text-2xl"
+            : "text-gray-900"}`}
+      >
+        {item.title}
+      </h2>
     </div>
 
     {/* Subtitle */}
@@ -77,7 +86,10 @@ const ContentCard = ({ item }) => (
       <ul className="space-y-2 text-gray-700 text-base">
         {item.points.map((point, i) => (
           <li key={i} className="flex items-start gap-2">
-            <FaCheckCircle className="text-purple-600 mt-1" />
+            <FaCheckCircle
+              size={14}
+              className="text-purple-600 mt-1 flex-shrink-0"
+            />
             {point}
           </li>
         ))}
@@ -103,7 +115,10 @@ const ContentCard = ({ item }) => (
       <ul className="space-y-2 text-gray-700 text-base">
         {item.bullets.map((bullet, i) => (
           <li key={i} className="flex items-start gap-2">
-            <FaCheckCircle className="text-purple-600 mt-1" />
+            <FaCheckCircle
+              size={14}
+              className="text-purple-600 mt-1 flex-shrink-0"
+            />
             {bullet}
           </li>
         ))}
@@ -116,7 +131,6 @@ const HeroSection = () => {
   return (
     <section className="py-16 bg-gradient-to-b from-purple-50 to-white">
       <div className="max-w-6xl mx-auto px-6 space-y-12">
-        
         {/* Row 1: 3 Cards (1, 2, 4) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[contentData[0], contentData[1], contentData[3]].map((item) => (
@@ -124,9 +138,8 @@ const HeroSection = () => {
           ))}
         </div>
 
-        {/* Row 2: Stats Section (3rd card, full width) */}
-        <ContentCard item={contentData[2]} />
-
+        {/* Row 2: Highlighted Section (3rd card) */}
+        <ContentCard item={contentData[2]} highlight />
       </div>
     </section>
   );

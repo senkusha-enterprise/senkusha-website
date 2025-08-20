@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { MessageSquare, X, Phone, Mail, MapPin } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import emailjs from "emailjs-com"; // ✅ added
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ export default function ContactUs() {
     subject: "",
     message: ""
   });
+  const [status, setStatus] = useState(""); // ✅ added
   const [showChatBox, setShowChatBox] = useState(false);
   const [faqHistory, setFaqHistory] = useState([]);
   const [customQuestion, setCustomQuestion] = useState("");
@@ -21,16 +23,9 @@ export default function ContactUs() {
       ([entry]) => {
         setIsFooterVisible(entry.isIntersecting);
       },
-      {
-        root: null,
-        threshold: 0.1
-      }
+      { root: null, threshold: 0.1 }
     );
-
-    if (footerRef.current) {
-      observer.observe(footerRef.current);
-    }
-
+    if (footerRef.current) observer.observe(footerRef.current);
     return () => {
       if (footerRef.current) observer.unobserve(footerRef.current);
     };
@@ -50,9 +45,24 @@ export default function ContactUs() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("Thank you for your message! We'll get back to you soon.");
-    setFormData({ name: "", email: "", subject: "", message: "" });
+
+    emailjs
+      .send(
+        "service_5yyevij", // ⚡ replace with EmailJS service ID
+        "YOUR_TEMPLATE_ID", // ⚡ replace with EmailJS template ID
+        formData,
+        "58zplpuXjwPtrlgZt"   // ⚡ replace with EmailJS public key
+      )
+      .then(
+        () => {
+          setStatus("✅ Message sent successfully!");
+          setFormData({ name: "", email: "", subject: "", message: "" });
+        },
+        (error) => {
+          console.error(error);
+          setStatus("❌ Failed to send message. Try again later.");
+        }
+      );
   };
 
   const handleQuestionClick = (question) => {
@@ -88,12 +98,19 @@ export default function ContactUs() {
           <div className="grid gap-8 lg:grid-cols-2">
             {/* Contact Form */}
             <div className="bg-white rounded-lg shadow-md p-6 sm:p-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-6">Send us a message</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+                Send us a message
+              </h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 {["name", "email", "subject"].map(field => (
                   <div key={field}>
-                    <label htmlFor={field} className="block text-sm font-medium text-gray-700 mb-1">
-                      {field === "name" ? "Full Name" : field.charAt(0).toUpperCase() + field.slice(1)}
+                    <label
+                      htmlFor={field}
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
+                      {field === "name"
+                        ? "Full Name"
+                        : field.charAt(0).toUpperCase() + field.slice(1)}
                     </label>
                     <input
                       type={field === "email" ? "email" : "text"}
@@ -108,7 +125,12 @@ export default function ContactUs() {
                   </div>
                 ))}
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    Message
+                  </label>
                   <textarea
                     id="message"
                     name="message"
@@ -127,6 +149,11 @@ export default function ContactUs() {
                   Send Message
                 </button>
               </form>
+              {status && (
+                <p className="mt-4 text-center text-sm font-medium text-purple-600">
+                  {status}
+                </p>
+              )}
             </div>
 
             {/* Contact Info */}
@@ -138,7 +165,7 @@ export default function ContactUs() {
                     {
                       icon: <Phone className="w-5 h-5 text-purple-600" />,
                       label: "Phone",
-                      value: "+1 (555) 123-4567"
+                      value: "+91 99671 45990"
                     },
                     {
                       icon: <Mail className="w-5 h-5 text-purple-600" />,
@@ -148,7 +175,7 @@ export default function ContactUs() {
                     {
                       icon: <MapPin className="w-5 h-5 text-purple-600" />,
                       label: "Address",
-                      value: "123 Business Street\nTech City, TC 12345\nUnited States"
+                      value: "Shop No. 12 GF, Prasanna Jeevan Co-Operative Housing Society Limited, CTS No. 32C, Eksar Village,Borivali Eksar Road, Bandar District, MumbaiSuburbaMumbai - 400092Maharashtra (27),India"
                     }
                   ].map((item, idx) => (
                     <div key={idx} className="flex items-start space-x-4">

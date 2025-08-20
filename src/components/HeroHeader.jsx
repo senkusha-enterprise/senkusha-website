@@ -1,5 +1,7 @@
 import React from "react";
 import PillButton from "./ui/PillButton";
+import { Link } from "react-router-dom";
+
 
 export default function HeroHeader() {
   return (
@@ -72,6 +74,7 @@ export default function HeroHeader() {
           your own startup — we get you ready for both.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center justify-center">
+          <Link to="/contact">
           <PillButton
             title="Start your journey with our mentor-led product building experience or collaborate with us as a college or company."
             className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg shadow-xl yellow-overlay"
@@ -82,21 +85,11 @@ export default function HeroHeader() {
               boxShadow: "0 4px 20px 0 rgba(251, 191, 36, 0.2)",
             }}
           >
-            Join the Next Batch
+            Connect With Us
           </PillButton>
+          </Link>
 
-          <PillButton
-            title="Start your journey with our mentor-led product building experience or collaborate with us as a college or company."
-            className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg shadow-xl yellow-overlay"
-            style={{
-              background: "#ffffff",
-              borderColor: "#fbbf24",
-              color: "#1f2937",
-              boxShadow: "0 4px 20px 0 rgba(251, 191, 36, 0.2)",
-            }}
-          >
-            Partner with Us
-          </PillButton>
+        
         </div>
       </div>
     </section>

@@ -125,14 +125,18 @@ const Internship = () => (
     >
       {steps.map(({ id, text, image }) => (
         <SwiperSlide key={id}>
-          <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300">
-            <img
-              src={image}
-              alt={`Step ${id}`}
-              className="w-full h-48 object-contain bg-white"
-            />
+          <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-[400px]">
+            {/* Image container with fixed height */}
+            <div className="h-48 flex items-center justify-center bg-white">
+              <img
+                src={image}
+                alt={`Step ${id}`}
+                className="max-h-full object-contain"
+              />
+            </div>
 
-            <div className="p-6">
+            {/* Content */}
+            <div className="p-6 flex-1 flex flex-col justify-start">
               <div className="flex items-center gap-3 mb-3 justify-center">
                 {/* Round Purple Circle */}
                 <div className="h-14 w-14 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white flex items-center justify-center font-bold text-lg">
@@ -150,6 +154,7 @@ const Internship = () => (
     </Swiper>
   </div>
 </section>
+
 
 
 

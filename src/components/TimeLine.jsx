@@ -117,28 +117,19 @@ const HeroSection = () => {
     <section className="py-16 bg-gradient-to-b from-purple-50 to-white">
       <div className="max-w-6xl mx-auto px-6 space-y-12">
         
-        {/* Top 2 Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {contentData.slice(0, 2).map((item) => (
+        {/* Row 1: 3 Cards (1, 2, 4) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[contentData[0], contentData[1], contentData[3]].map((item) => (
             <ContentCard key={item.id} item={item} />
           ))}
         </div>
 
-        {/* Stats Section */}
+        {/* Row 2: Stats Section (3rd card, full width) */}
         <ContentCard item={contentData[2]} />
 
-         {/* Difference Section (centered) */}
-        <div className="flex justify-center">
-          <div className="w-full max-w-2xl">
-            <ContentCard item={contentData[3]} />
-          </div>
-        </div>
       </div>
     </section>
   );
 };
 
 export default HeroSection;
-
-
-

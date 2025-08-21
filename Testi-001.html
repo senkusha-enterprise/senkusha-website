@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Senkusha - Coming Soon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts: Poppins for Tech Look -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background: #111;
+    }
+    .showcase {
+      position: relative;
+      height: 100vh;
+      width: 100vw;
+      color: #fff;
+      overflow: hidden;
+    }
+    .showcase video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.7;
+      z-index: 1;
+    }
+    .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(28,77,156, 0.4); /* Futuristic blue overlay */
+      z-index: 2;
+      mix-blend-mode: overlay;
+    }
+    .text {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      text-align: center;
+      width: 80vw;
+    }
+    .text h2 {
+      font-size: 3.5em;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .text h3 {
+      font-size: 2em;
+      font-weight: 600;
+      margin: 0.4em 0 1em;
+      letter-spacing: 1px;
+    }
+    .text p {
+      font-size: 1.2em;
+      font-weight: 400;
+      margin: 0 auto;
+      max-width: 700px;
+    }
+    .logo {
+      font-size: 2em;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      position: absolute;
+      top: 35px;
+      left: 50px;
+      z-index: 4;
+      text-shadow: 0 2px 12px #0005;
+    }
+    @media (max-width: 991px) {
+      .text h2 { font-size: 2em; }
+      .text h3 { font-size: 1.2em; }
+      .logo { font-size: 1.5em; left: 20px; top: 15px; }
+      .text { width: 95vw; }
+    }
+  </style>
+</head>
+<body>
+  <section class="showcase">
+    <header>
+      <h2 class="logo">Senkusha</h2>
+    </header>
+    <!-- Free tech video from Pexels: https://www.pexels.com/video/5473952/ -->
+    <video src="https://player.vimeo.com/external/5473952.sd.mp4?s=3d6da5a0eb42e9bfff01046f61bb9086d392d62e&profile_id=164&oauth2_token_id=57447761" muted loop autoplay playsinline></video>
+    <div class="overlay"></div>
+    <div class="text">
+      <h2>New Era of Technology</h2>
+      <h3>Website Coming Soon</h3>
+    </div>
+  </section>
+</body>
+</html>

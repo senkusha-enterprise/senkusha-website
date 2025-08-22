@@ -31,27 +31,29 @@ const TestimonialCard = ({ testimonial }) => (
     transition={{ duration: 1, ease: "easeInOut" }}
     className="bg-[#fcfbf5] rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform border border-gray-100 overflow-hidden flex flex-col md:flex-row p-6 gap-6"
   >
-    {/* Left section */}
-    <div className="flex flex-col items-center justify-center md:w-[30%] w-full py-4">
-      <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-purple-200 mb-4 bg-purple-50">
-        <img
-          src={testimonial.image || require("../assets/user.jpg")}
-          alt={testimonial.name}
-          className="w-full h-full object-cover"
-        />
-      </div>
-      <h3 className="font-bold text-gray-900 text-sm md:text-lg text-center">
-        {testimonial.name} ~ {testimonial.year}
-      </h3>
-      <p className="text-xs md:text-sm text-gray-600 text-center mb-2">
-        {testimonial.role}
-      </p>
-      <div className="flex items-center justify-center space-x-1 mt-1">
-        {[...Array(5)].map((_, i) => (
-          <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-        ))}
-      </div>
-    </div>
+   {/* Left section */}
+<div className="flex flex-col items-center justify-center md:w-[30%] w-full py-4">
+  <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-purple-200 mb-4">
+    <img
+      src={testimonial.image || require("../assets/user.jpg")}
+      alt={testimonial.name}
+      className="w-full h-full object-cover object-center"
+    />
+  </div>
+  <h3 className="font-bold text-gray-900 text-sm md:text-lg text-center">
+    {testimonial.name} ~ {testimonial.year}
+  </h3>
+  <p className="text-xs md:text-sm text-gray-600 text-center mb-2">
+    {testimonial.role}
+  </p>
+  <div className="flex items-center justify-center space-x-1 mt-1">
+    {[...Array(5)].map((_, i) => (
+      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+    ))}
+  </div>
+</div>
+
+
 
     {/* Right section */}
     <div className="flex-1 flex flex-col justify-center">

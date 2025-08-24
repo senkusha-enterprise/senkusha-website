@@ -15,10 +15,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20    # ✅ upgraded from 18 → 20
+          cache: 'npm'        # ✅ cache npm packages for speed + fewer errors
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci           # ✅ cleaner + faster than npm install in CI/CD
 
       - name: Build React App
         run: npm run build
@@ -28,4 +29,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
-          cname: senkusha.in   # 👈 ensures custom domain works
+          cname: senkusha.in   # ✅ custom domain will still work

@@ -1,3 +1,10 @@
+name: Deploy React App to GitHub Pages
+
+on:
+  push:
+    branches:
+      - S_portfolio-PP   # change if your default branch is different
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
